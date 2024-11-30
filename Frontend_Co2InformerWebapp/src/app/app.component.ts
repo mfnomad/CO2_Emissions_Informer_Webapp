@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LandingpageComponent } from "./landingpage/landingpage.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, LandingpageComponent],
   template: `
-    <h1>Welcome to {{title}}!</h1>
+    
+    <app-landingpage/> 
+    
 
     <router-outlet />
   `,
   styles: [],
 })
 export class AppComponent {
-  title = 'Co2InformerWebapp';
+  
 }
