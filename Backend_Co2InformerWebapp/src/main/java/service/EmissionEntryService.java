@@ -10,12 +10,14 @@ import java.util.List;
 @Service
 public class EmissionEntryService {
 
-    @Autowired
-    private EmissionEntryRepository repository;
+    private final EmissionEntryRepository repository;
 
-    public List<EmissionEntry> getEmissionsByYear(Long year) {
-        return repository.findByYear(year);
+    @Autowired
+    public EmissionEntryService(EmissionEntryRepository emissionEntryRepository) {
+        this.repository = emissionEntryRepository;
     }
+
+
 
     public List<EmissionEntry> getAllEmissions() {
         return repository.findAll();

@@ -1,0 +1,1 @@
+EXEC dbo.PrintEmissionsByYear 2020;

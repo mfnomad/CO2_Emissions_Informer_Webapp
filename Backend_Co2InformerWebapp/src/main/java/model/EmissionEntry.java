@@ -6,42 +6,59 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Emissions")
+@Table(name = "mafrit05_Emissions", schema = "dbo")
 public class EmissionEntry {
+
     @Id
     @Column(name = "Country")
     private String country;
 
-    @Column(name = "Abbrev")
-    private String abbrev;
+    @Column(name = "ISO_3166_1_alpha_3")
+    private String iso3166_1Alpha3;
 
     @Column(name = "Year")
-    private Long year;
+    private String year;
 
     @Column(name = "Total")
-    private float total;
+    private String total;
 
-    @Column(name = "From_Coal")
-    private float fromCoal;
+    @Column(name = "Coal")
+    private String coal;
 
-    @Column(name = "From_Oil")
-    private float fromOil;
+    @Column(name = "Oil")
+    private String oil;
 
-    @Column(name = "From_Gas")
-    private float fromGas;
+    @Column(name = "Gas")
+    private String gas;
 
-    @Column(name = "From_Cement")
-    private float fromCement;
+    @Column(name = "Cement")
+    private String cement;
 
-    @Column(name = "From_Flaring")
-    private float fromFlaring;
+    @Column(name = "Flaring")
+    private String flaring;
 
-    @Column(name = "From_Other")
-    private float fromOther;
+    @Column(name = "Other")
+    private String other;
 
     @Column(name = "Per_Capita")
-    private float perCapita;
+    private String perCapita;
 
+    @Override
+    public String toString() {
+        return "EmissionEntry{" +
+                "country='" + country + '\'' +
+                ", iso3166_1Alpha3='" + iso3166_1Alpha3 + '\'' +
+                ", year='" + year + '\'' +
+                ", total='" + total + '\'' +
+                ", coal='" + coal + '\'' +
+                ", oil='" + oil + '\'' +
+                ", gas='" + gas + '\'' +
+                ", cement='" + cement + '\'' +
+                ", flaring='" + flaring + '\'' +
+                ", other='" + other + '\'' +
+                ", perCapita='" + perCapita + '\'' +
+                '}';
+    }
 
     public String getCountry() {
         return country;
@@ -51,115 +68,83 @@ public class EmissionEntry {
         this.country = country;
     }
 
-    public String getAbbrev() {
-        return abbrev;
+    public String getIso3166_1Alpha3() {
+        return iso3166_1Alpha3;
     }
 
-    public void setAbbrev(String abbrev) {
-        this.abbrev = abbrev;
+    public void setIso3166_1Alpha3(String iso3166_1Alpha3) {
+        this.iso3166_1Alpha3 = iso3166_1Alpha3;
     }
 
-    public Long getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Long year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public float getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(float total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 
-    public float getFromCoal() {
-        return fromCoal;
+    public String getCoal() {
+        return coal;
     }
 
-    public void setFromCoal(float fromCoal) {
-        this.fromCoal = fromCoal;
+    public void setCoal(String coal) {
+        this.coal = coal;
     }
 
-    public float getFromOil() {
-        return fromOil;
+    public String getOil() {
+        return oil;
     }
 
-    public void setFromOil(float fromOil) {
-        this.fromOil = fromOil;
+    public void setOil(String oil) {
+        this.oil = oil;
     }
 
-    public float getFromGas() {
-        return fromGas;
+    public String getGas() {
+        return gas;
     }
 
-    public void setFromGas(float fromGas) {
-        this.fromGas = fromGas;
+    public void setGas(String gas) {
+        this.gas = gas;
     }
 
-    public float getFromCement() {
-        return fromCement;
+    public String getCement() {
+        return cement;
     }
 
-    public void setFromCement(float fromCement) {
-        this.fromCement = fromCement;
+    public void setCement(String cement) {
+        this.cement = cement;
     }
 
-    public float getFromFlaring() {
-        return fromFlaring;
+    public String getFlaring() {
+        return flaring;
     }
 
-    public void setFromFlaring(float fromFlaring) {
-        this.fromFlaring = fromFlaring;
+    public void setFlaring(String flaring) {
+        this.flaring = flaring;
     }
 
-    public float getFromOther() {
-        return fromOther;
+    public String getOther() {
+        return other;
     }
 
-    public void setFromOther(float fromOther) {
-        this.fromOther = fromOther;
+    public void setOther(String other) {
+        this.other = other;
     }
 
-    public float getPerCapita() {
+    public String getPerCapita() {
         return perCapita;
     }
 
-    public void setPerCapita(float perCapita) {
+    public void setPerCapita(String perCapita) {
         this.perCapita = perCapita;
-    }
-
-    public EmissionEntry(String country, String abbrev, Long year, float total, float fromCoal, float fromOil, float fromGas, float fromCement, float fromFlaring, float fromOther, float perCapita) {
-        this.country = country;
-        this.abbrev = abbrev;
-        this.year = year;
-        this.total = total;
-        this.fromCoal = fromCoal;
-        this.fromOil = fromOil;
-        this.fromGas = fromGas;
-        this.fromCement = fromCement;
-        this.fromFlaring = fromFlaring;
-        this.fromOther = fromOther;
-        this.perCapita = perCapita;
-    }
-
-    @Override
-    public String toString() {
-        return "EmissionEntry{" +
-                "country='" + country + '\'' +
-                ", abbrev='" + abbrev + '\'' +
-                ", year=" + year +
-                ", total=" + total +
-                ", fromCoal=" + fromCoal +
-                ", fromOil=" + fromOil +
-                ", fromGas=" + fromGas +
-                ", fromCement=" + fromCement +
-                ", fromFlaring=" + fromFlaring +
-                ", fromOther=" + fromOther +
-                ", perCapita=" + perCapita +
-                '}';
     }
 }
-

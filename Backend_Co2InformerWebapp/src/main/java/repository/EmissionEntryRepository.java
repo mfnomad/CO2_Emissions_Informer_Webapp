@@ -8,5 +8,8 @@ import java.util.List;
 
 @Repository
 public interface EmissionEntryRepository extends JpaRepository<EmissionEntry, String> {
-    List<EmissionEntry> findByYear(Long year);
+    List<EmissionEntry> findByCountryAndYear(String country, String year);
+
+
 }
+

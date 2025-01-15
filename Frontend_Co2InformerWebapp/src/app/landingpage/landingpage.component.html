@@ -1,11 +1,34 @@
 <div class="flex items-center justify-center min-h-screen bg-green-500">
-    <div class="w-3/4 h-[60vh] bg-gradient-to-r from-blue-500 to-purple-400 flex flex-col justify-start items-center rounded-lg shadow-lg">
-      <h1 class="text-4xl font-bold text-white mt-4">CO2 Emissions Informer</h1>
+  <div class="w-3/4 h-[60vh] bg-gradient-to-r from-blue-500 to-purple-400 flex flex-col justify-start items-center rounded-lg shadow-lg">
+    <h1 class="text-4xl font-bold text-white mt-4">CO2 Emissions Informer</h1>
 
-      <div class="rounded-box bg-red flex">
+    <div class="mt-6 text-xl text-white">Press Button to Fetch Emissions By Country and Year</div>
 
+    <!-- Input fields for Country and Year -->
+    <div class="mt-4 w-3/4 flex flex-col gap-4">
+      <input type="text" [(ngModel)]="country" placeholder="Enter Country" class="p-2 rounded-md text-black"/>
+      <input type="number" [(ngModel)]="year" placeholder="Enter Year" class="p-2 rounded-md text-black"/>
+    </div>
 
+    <!-- Button to fetch emissions -->
+    <button (click)="fetchEmissions()" class="mt-6 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
+      Fetch Emissions
+    </button>
+
+    <!-- Conditional display of data once it's fetched -->
+    @if(this.emissionData){
+      <div  class="mt-6 w-3/4 bg-white p-4 rounded-md shadow-md text-black absolute top-0 left-0 items-center justify-center">
+      <h2 class="text-2xl font-semibold">Emissions Data for {{"COUNTRY" }} ({{ emissionData.year }})</h2>
+      <div class="mt-2">
+        <div><strong>Cement:</strong> {{ emissionData.cement }}</div>
+        <div><strong>Coal:</strong> {{ emissionData.coal }}</div>
+        <div><strong>Gas:</strong> {{ emissionData.gas }}</div>
+        <div><strong>Oil:</strong> {{ emissionData.oil }}</div>
+        <div><strong>Flaring:</strong> {{ emissionData.flaring }}</div>
+        <div><strong>Total Emissions:</strong> {{ emissionData.total }}</div>
+        <div><strong>Per Capita:</strong> {{ emissionData.perCapita }}</div>
       </div>
     </div>
+    }  
   </div>
-  
+</div>
